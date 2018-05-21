@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+
+      <div class="card-panel blue lighten-3">
+        <h4 class="center white-text">Check the animal!</h4>
+      </div>
+
+      <form #imageForm=ngForm (ngSubmit)="OnSubmit(Image)">
+        <div class="row">
+          <div class="col s6">
+              <img [src]="imageUrl" style="width: 550px; height: 400px;">
+          </div>
+
+          <div class="col s6">
+              <div *ngIf="data.success else errorBlock">
+                  <div *ngFor="let info of data.data">
+                    <label>{{info.description}}</label>
+                      <div class="progress">
+                          <div class="determinate" [ngStyle]="setStyles(info.score)"></div>
+                      </div>
+                  </div>
+              </div>
+
+              <ng-template #errorBlock>
+                  <div *ngFor="let info of data.data">
+                      <label>{{info.description}}</label>
+                      <div class="progress">
+                          <div class="determinate" [ngStyle]="setStyles(info.score)">{{info.score}}</div>
+                      </div>
+                  </div>
+                </ng-template>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="file-field input-field">
+                <div class="btn blue lighten-3">
+                  <span>File</span>
+                  <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                </div>
+                <div class="file-path-wrapper">
+                  <input #Image class="file-path validate" type="text">
+                </div>
+              </div>
+
+            <button type="submit" class="btn light-green btn-submit" [disabled]="Image.value == ''">Check</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

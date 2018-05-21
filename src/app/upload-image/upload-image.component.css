@@ -1,0 +1,17 @@
+.message-success {
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+
+}
+
+.message-error {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+
+}
+
+label {
+  font-size: 20px;
+}
