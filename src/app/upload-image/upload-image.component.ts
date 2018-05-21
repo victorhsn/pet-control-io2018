@@ -38,7 +38,6 @@ export class UploadImageComponent implements OnInit {
         .subscribe(data => {
           this.data = data;
           Image.value = '';
-          console.log(data);
         });
   }
 
