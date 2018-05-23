@@ -34,27 +34,30 @@ export class UploadImageComponent implements OnInit {
     }
 
     reader.readAsDataURL(this.fileToUpload);
-    this.photoSelected = 'photo-selected';
+    this.sendFile(Image);
   }
 
-  OnSubmit(Image) {
+  sendFile(Image) {
     this.imageService
-        .postFile(this.fileToUpload)
-        .subscribe(data => {
-          this.data = data;
-          Image.value = '';
-        });
+    .postFile(this.fileToUpload)
+    .subscribe(data => {
+      this.data = data;
+      Image.value = '';
+      console.log(data);
+      this.photoSelected = 'photo-selected';
+    });
   }
 
   setPhotoSelected() {
     return this.photoSelected;
   }
 
-  setStyles(score) {
+  setPorcentValue(score) {
+
     let style = {
       'width' : `${score}%`
     }
+    return  style;
 
-   return style
   }
 }
