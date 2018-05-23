@@ -15,12 +15,12 @@ export class UploadImageService {
 
   }
 
-  public postFile(fileToUpload: File) {
+  public postFile(fileToUpload: File) : Observable<any> {
 
     const data: FormData = new FormData();
     data.append('File', fileToUpload);
 
-    return this.http.post(this.url, data);
+    return this.http.post<any>(this.url, data);
 
   }
 }

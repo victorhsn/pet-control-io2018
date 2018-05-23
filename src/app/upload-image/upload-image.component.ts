@@ -42,6 +42,9 @@ export class UploadImageComponent implements OnInit {
       this.data = data;
       Image.value = '';
       this.photoSelected = 'photo-selected';
+
+      this.verifyDog(data.data[0].description);
+
     });
   }
 
@@ -53,7 +56,15 @@ export class UploadImageComponent implements OnInit {
     return { 'width' : `${score}%`}
   }
 
-  backUpload() {
+  backToUpload() {
     this.photoSelected = '';
+  }
+
+  verifyDog(description) {
+    if(description === 'pug') {
+      document.querySelector(".its.a.pug").classList.remove("not");
+    } else {
+      document.querySelector(".its.a.pug").classList.add("not");
+    }
   }
 }
