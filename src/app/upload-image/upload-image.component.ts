@@ -53,11 +53,6 @@ export class UploadImageComponent implements OnInit {
   }
 
   setPorcentValue(score) {
-
-    let style = {
-      'width' : `${score}%`
-    }
-    return  style;
-
+    return { 'width' : `${score}%`}
   }
 }

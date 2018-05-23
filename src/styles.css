@@ -168,10 +168,25 @@ h2 {
 	transition: all .1s .3s ease-out;
 }
 
+.photo-selected .arrow-back {
+	width: 155px;
+	height: 20px;
+	position: absolute;
+  bottom: 220px;
+	user-select: none;
+	left: 300px;
+	background-image: url(./assets/img/arrow.svg);
+	background-repeat: no-repeat;
+	transform: rotate(-200deg);
+	background-size: cover;
+}
+
 .photo-selected .title,
 .photo-selected .arrow {
 	display: none;
 }
+
+
 
 .photo-selected .photo-image-placeholder {
 	display: none;
@@ -225,8 +240,8 @@ h2 {
 }
 .photo-selected .results-list .result h1 {
 	font-family: 'Gloria Hallelujah', cursive;
-	margin: 0;
-	text-align: center;
+  margin-top: 0;
+  margin-left: 85px;
 }
 
 .photo-selected .results-list .result .its.a.pug {
