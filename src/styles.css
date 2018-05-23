@@ -232,7 +232,8 @@ h2 {
 	height: 16px;
 	background-size: cover;
 	background-image: url(./assets/img/coleira.svg);
-	position: relative;
+  position: relative;
+  width: 0%;
 }
 .photo-selected .results-list .result {
 	height: 85px;

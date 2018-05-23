@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadImageService } from '../shared/upload-image.service';
 
-
-
 @Component({
   selector: 'app-upload-image',
   templateUrl: './upload-image.component.html',
@@ -15,7 +13,7 @@ export class UploadImageComponent implements OnInit {
   fileToUpload : File = null;
   data: any = '';
 
-  photoSelected = ''
+  photoSelected = '';
 
   constructor(private imageService: UploadImageService) {
 
@@ -43,7 +41,6 @@ export class UploadImageComponent implements OnInit {
     .subscribe(data => {
       this.data = data;
       Image.value = '';
-      console.log(data);
       this.photoSelected = 'photo-selected';
     });
   }
