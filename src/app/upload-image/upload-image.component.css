@@ -1,17 +1,10 @@
-.message-success {
-  font-size: 20px;
-  font-weight: bold;
-  color: green;
-
+.upload_button {
+  display: inline-block;
 }
-
-.message-error {
-  font-size: 20px;
-  font-weight: bold;
-  color: red;
-
+.upload_button input[type=file] {
+  display:none;
+  cursor: pointer;
 }
-
-label {
-  font-size: 20px;
+.upload_button span {
+  cursor: pointer;
 }

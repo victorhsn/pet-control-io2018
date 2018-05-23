@@ -1,1 +1,294 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
+body {
+  margin-top: 50px;
+}
+
+h1,
+h2 {
+	font-family: Lato;
+}
+
+#app {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+	width: 1000px;
+	height: 700px;
+	border: 1px solid #eee;
+	border-radius: 16px;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	background: linear-gradient(to bottom, #90caf9, #eaf3f9 50%);
+}
+
+.container .ground {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	height: 381px;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+	background-image: url(./assets/img/ground.svg);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container .dog-house {
+	width: 185px;
+	height: 215px;
+	position: absolute;
+	bottom: 56px;
+	left: 56px;
+
+	background-image: url(./assets/img/doghouse.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container .photo {
+	width: 400px;
+	height: 460px;
+	position: absolute;
+	top: calc(40% - 230px);
+	left: calc(50% - 200px);
+	border: 1px solid #e1e1e1;
+	box-shadow: 0 2px 4px 0 rgba(50, 50, 50, 0.3);
+	background: white;
+	transition: all .3s ease-out;
+}
+
+.container .photo .pin {
+	width: 33px;
+	height: 39px;
+	position: absolute;
+	top: -25px;
+	left: calc(50% - 10px);
+	background-image: url(./assets/img/pin.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container .photo .photo-image {
+	width: 360px;
+	height: 360px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	border: 1px solid #e1e1e1;
+	background-image: url(./assets/img/pug.svg);
+	background-repeat: no-repeat;
+	background-size: 70%;
+	background-position: center;
+	background-color: #f5fff5;
+}
+
+.container .photo:hover .photo-image {
+	background-image: url(./assets/img/gray.svg);
+}
+
+.container .photo:hover .photo-image-placeholder {
+	position: absolute;
+	width: 340px;
+	height: 340px;
+	top: 10px;
+	left: 10px;
+	border-radius: 10px;
+	border: 10px dashed #aaa;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.container .photo .photo-image {
+	overflow: hidden;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+}
+
+.container .photo .photo-image img {
+	display: none;
+}
+
+.container .photo .photo-image-placeholder span {
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 20px;
+	text-align: center;
+	user-select: none;
+	bottom: 135px;
+	position: absolute;
+	left: 0;
+	right: 0;
+  text-shadow: 1px 1px #aaa;
+  color: #000;
+	opacity: 0;
+}
+
+.container .photo:hover .photo-image-placeholder span {
+	opacity: 1;
+}
+
+.container .title {
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 36px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	user-select: none;
+	transform: rotate(-20deg);
+}
+
+.container .arrow {
+	width: 155px;
+	height: 39px;
+	position: absolute;
+	top: 160px;
+	user-select: none;
+	left: 175px;
+	background-image: url(./assets/img/arrow.svg);
+	background-repeat: no-repeat;
+	transform: rotate(20deg);
+	background-size: cover;
+}
+
+.photo-selected .photo {
+	left: 30px;
+	transition: all .1s .3s ease-out;
+}
+
+.photo-selected .title,
+.photo-selected .arrow {
+	display: none;
+}
+
+.photo-selected .photo-image-placeholder {
+	display: none;
+}
+
+.container .photo .photo-image {
+	border: 1px solid #888;
+}
+
+.results-list   {
+	user-select: none;
+	opacity: 0;
+	transform: translateX(500px);
+	transition: transform 0.2s ease-out;
+}
+
+.photo-selected .photo .photo-image img {
+	display: inline-block;
+}
+
+.photo-selected .results-list {
+
+	user-select: all;
+	opacity: 1;
+	transform: translateX(0px);
+	transition: all 0.15s 0.2s ease-out;
+
+	display: block;
+	border: 1px solid #e1e1e1;
+	height: 550px;
+	width: 400px;
+	top: 52px;
+	right: 30px;
+	position: absolute;
+	box-shadow: 0 0 4px 2px rgba(110, 110, 110, 0.3);
+	background: white;
+}
+
+.photo-selected .progress {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	transition: all  0.2s ease-out;
+	height: 16px;
+	background-size: cover;
+	background-image: url(./assets/img/coleira.svg);
+	position: relative;
+}
+.photo-selected .results-list .result {
+	height: 85px;
+
+}
+.photo-selected .results-list .result h1 {
+	font-family: 'Gloria Hallelujah', cursive;
+	margin: 0;
+	text-align: center;
+}
+
+.photo-selected .results-list .result .its.a.pug {
+
+	background-image: url(./assets/img/pugface.svg);
+    background-repeat: no-repeat;
+    transform: rotate(20deg);
+    background-size: cover;
+    display: inline-block;
+    width: 58px;
+    height: 43px;
+    position: absolute;
+    left: 11px;
+    top: 10px;
+}
+
+
+.photo-selected .results-list .result .its.not.a.pug::after {
+    content: '';
+    background-image: url(./assets/img/notallowed.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 72px;
+    height: 74px;
+    position: absolute;
+    left: -5px;
+    top: -19px;
+}
+
+
+.photo-selected .results-list ul {
+
+	height: 440px;
+	overflow-y: scroll;
+
+}
+.photo-selected .results-list li {
+	width: 80%;
+	font-family: 'Patrick Hand', cursive;
+
+
+
+	font-size: 24px;
+	list-style: none;
+}
+.progress-value {
+	position: absolute;
+	right: 0;
+	transform: translateX(36px) translateY(-7px);
+	background-image: url(./assets/img/medalha.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 31px;
+	width: 42px;
+	padding-left: 11px;
+	font-size: 13px;
+	box-sizing: border-box;
+	font-family: 'Dosis', sans-serif;
+	line-height: 31px;
+	text-align: center;
+	color: rgb(73, 54, 0);
+}
+
+

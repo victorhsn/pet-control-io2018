@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UploadImageService } from '../shared/upload-image.service';
 
 
+
 @Component({
   selector: 'app-upload-image',
   templateUrl: './upload-image.component.html',
@@ -14,11 +15,14 @@ export class UploadImageComponent implements OnInit {
   fileToUpload : File = null;
   data: any = '';
 
+  photoSelected = ''
+
   constructor(private imageService: UploadImageService) {
 
   }
 
   ngOnInit() {
+    this.setPhotoSelected();
   }
 
   handleFileInput(file: FileList) {
@@ -30,6 +34,7 @@ export class UploadImageComponent implements OnInit {
     }
 
     reader.readAsDataURL(this.fileToUpload);
+    this.photoSelected = 'photo-selected';
   }
 
   OnSubmit(Image) {
@@ -39,6 +44,10 @@ export class UploadImageComponent implements OnInit {
           this.data = data;
           Image.value = '';
         });
+  }
+
+  setPhotoSelected() {
+    return this.photoSelected;
   }
 
   setStyles(score) {
