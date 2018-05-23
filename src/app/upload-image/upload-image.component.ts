@@ -52,4 +52,8 @@ export class UploadImageComponent implements OnInit {
   setPorcentValue(score) {
     return { 'width' : `${score}%`}
   }
+
+  backUpload() {
+    this.photoSelected = '';
+  }
 }

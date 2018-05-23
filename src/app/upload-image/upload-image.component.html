@@ -24,7 +24,9 @@
          <del>dog</del> pug picture!
         </p>
         <div class="arrow"></div>
-        <div class="arrow-back"></div>
+        <div class="arrow-back" (click)="backUpload()">
+
+        </div>
         <div class="results-list">
 
             <div class="result" >
@@ -36,8 +38,7 @@
             </div>
 
             <ul>
-              <div *ngFor="let info of data.data">
-              <li>
+              <li *ngFor="let info of data.data">
                 {{info.description}}
                 <div class="progress" [ngStyle]="setPorcentValue(info.score)" >
                     <div class="progress-value">
@@ -45,7 +46,6 @@
                     </div>
                   </div>
               </li>
-            </div>
             </ul>
           </div>
     </div>
