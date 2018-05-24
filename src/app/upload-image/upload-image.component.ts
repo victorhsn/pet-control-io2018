@@ -37,7 +37,11 @@ export class UploadImageComponent implements OnInit {
     }
 
     reader.readAsDataURL(this.fileToUpload);
-    this.sendFile(Image);
+
+    setTimeout(() => {
+      this.sendFile(Image);
+    }, 5000);
+
   }
 
   sendFile(Image) {
