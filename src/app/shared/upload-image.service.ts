@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UploadImageService {
 
-  private url: string = "http://localhost:5000/api/pet/v1/register";
+  private url: string = "http://localhost:5000/api/pet/v1/identify";
 
   constructor(private http: HttpClient) {
 

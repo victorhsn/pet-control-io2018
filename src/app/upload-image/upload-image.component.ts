@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadImageService } from '../shared/upload-image.service';
 
+
 @Component({
   selector: 'app-upload-image',
   templateUrl: './upload-image.component.html',
@@ -21,9 +22,13 @@ export class UploadImageComponent implements OnInit {
 
   ngOnInit() {
     this.setPhotoSelected();
+    this.setLoading(false);
   }
 
   handleFileInput(file: FileList) {
+
+    this.setLoading(true);
+
     this.fileToUpload = file.item(0);
 
     var reader = new FileReader();
@@ -39,6 +44,7 @@ export class UploadImageComponent implements OnInit {
     this.imageService
     .postFile(this.fileToUpload)
     .subscribe(data => {
+
       this.data = data;
       Image.value = '';
       this.photoSelected = 'photo-selected';
@@ -65,6 +71,19 @@ export class UploadImageComponent implements OnInit {
       document.querySelector(".its.a.pug").classList.remove("not");
     } else {
       document.querySelector(".its.a.pug").classList.add("not");
+    }
+
+    this.setLoading(false);
+  }
+
+  setLoading(value) {
+
+    let load = document.getElementById('loading');
+
+    if(value) {
+      load.classList.add('loading');
+    } else {
+      load.classList.remove('loading');
     }
   }
 }

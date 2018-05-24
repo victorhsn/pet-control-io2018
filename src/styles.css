@@ -307,4 +307,53 @@ h2 {
 	color: rgb(73, 54, 0);
 }
 
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(103, 187, 236, 0.938);
+	background-image: url(./assets/img/carregando.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
+.loading::after {
+	content: '';
+	background-image: url(./assets/img/smoke.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: fixed;
+	left: calc(50% - 48px);
+	top: calc(50% - 118px);
+	bottom: 0;
+	right: 0;
+	width: 40px;
+	height: 88px;
+	animation: smoke 1.5s ease-in-out infinite;
+}
+
+@keyframes smoke {
+	0% {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+
+	50% {
+		transform: scaleY(1.4) translateY(-40px);
+		opacity: .15;
+	}
+
+	60% {
+		opacity: 0;
+	}
+	90% {
+		transform: scaleY(1);
+		opacity: 0;
+	}
+	100% {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+}
