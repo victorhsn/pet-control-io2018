@@ -67,14 +67,16 @@ export class UploadImageComponent implements OnInit {
   }
 
   backToUpload() {
+    document.querySelector(".its.a.pug").classList.add("not");
     this.photoSelected = '';
   }
 
-  thereIsPug(featuries) {
+  thereIsPug(features) {
 
-    for(let i = 0; i < featuries.length; i++ ) {
+    for(let i = 0; i < features.length; i++ ) {
 
-      if (featuries[i].description == 'pug') {
+      if (features[i].description == 'pug') {
+
         document.querySelector(".its.a.pug").classList.remove("not");
 
       }
