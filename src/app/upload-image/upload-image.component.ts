@@ -53,7 +53,7 @@ export class UploadImageComponent implements OnInit {
       Image.value = '';
       this.photoSelected = 'photo-selected';
 
-      this.verifyDog(data.data[0].description);
+      this.thereIsPug(data.data);
 
     });
   }
@@ -70,14 +70,16 @@ export class UploadImageComponent implements OnInit {
     this.photoSelected = '';
   }
 
-  verifyDog(description) {
-    if(description === 'pug') {
-      document.querySelector(".its.a.pug").classList.remove("not");
-    } else {
-      document.querySelector(".its.a.pug").classList.add("not");
-    }
+  thereIsPug(featuries) {
 
-    this.setLoading(false);
+    for(let i = 0; i < featuries.length; i++ ) {
+
+      if (featuries[i].description == 'pug') {
+        document.querySelector(".its.a.pug").classList.remove("not");
+
+      }
+      this.setLoading(false);
+    }
   }
 
   setLoading(value) {
